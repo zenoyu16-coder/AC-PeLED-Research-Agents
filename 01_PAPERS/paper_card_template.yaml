@@ -1,0 +1,77 @@
+# 缺失信息统一填写: "Not explicitly specified in text"
+title: "论文完整标题，示例：Not explicitly specified in text"
+authors: ["作者列表；未提供时写 Not explicitly specified in text"]
+journal: "期刊名称"
+year: "发表年份"
+doi: "DOI；不要根据记忆推断"
+paper_type: "AC-driven PeLED / DC PeLED / OLED / materials / review / other"
+
+material_system: "材料体系及关键添加剂"
+perovskite_composition: "名义化学组成与 stoichiometry"
+dimensionality: "3D / quasi-2D / 2D / mixed / not specified"
+emission_color: "blue / green / red / NIR，并记录峰位"
+
+device:
+  device_stack: "从 substrate 到 top electrode 的完整顺序"
+  substrate: "例如 ITO/glass；以原文为准"
+  HTL: "hole transport/injection layer"
+  EML: "emissive layer"
+  ETL: "electron transport/injection layer"
+  electrode: "electrode material and thickness"
+  device_area: "有效发光面积及单位"
+  encapsulation: "封装材料与方法"
+
+driving_condition:
+  mode: "AC / DC / pulsed；说明 polarity"
+  waveform: "sine / square / triangle / other"
+  frequency: "数值与单位"
+  voltage_amplitude: "peak / peak-to-peak / RMS 必须区分"
+  duty_cycle: "百分比或 Not explicitly specified in text"
+  current_density: "数值、单位与测量时刻"
+  measurement_environment: "air / N2 / vacuum，温度与湿度"
+
+performance:
+  EL_peak: "nm"
+  FWHM: "nm"
+  CIE: "CIE (x, y)"
+  luminance: "cd m^-2，并说明 driving condition"
+  EQE: "%，区分 champion 与统计值"
+  turn_on_voltage: "V，并说明判据"
+  positive_half_cycle_EL: "积分或峰值定义"
+  negative_half_cycle_EL: "积分或峰值定义"
+  PN_ratio: "R_PN = I_positive / I_negative"
+  lifetime: "T50 / T80 / retention 及数值"
+  stability_protocol: "初始亮度、waveform、frequency、atmosphere、encapsulation"
+
+mechanism:
+  main_claim: "作者的核心机制 claim"
+  material_structure_link: "材料变化如何影响结构；写明证据"
+  carrier_transport_link: "energy level、injection、transport 与 blocking"
+  ion_migration_or_polarization: "ion migration / interfacial polarization 的证据或缺失"
+  recombination_mechanism: "radiative/non-radiative recombination 解释"
+  degradation_mechanism: "可能的热、电、离子或界面退化路径"
+
+evidence:
+  direct_evidence:
+    - "直接测量支持的结论；附 figure/table 编号"
+  indirect_evidence:
+    - "一致但不能单独证明机制的结果"
+  author_hypothesis:
+    - "作者提出但未被直接验证的解释"
+  missing_details:
+    - "Not explicitly specified in text"
+
+figures_to_understand:
+  - figure: "Figure number"
+    role: "该图回答的研究问题"
+    key_trend: "可直接观察到的趋势"
+    claim_supported: "它支持的 claim 及 evidence level"
+    caveat: "坐标、归一化、样本数、带宽或 control 限制"
+
+relevance_to_my_project:
+  useful_idea: "可用于 AC-PeLED 的材料、器件或测量思路"
+  transferable_protocol: "可映射到 02_PROTOCOLS/ 的步骤"
+  possible_experiment: "可证伪的小规模实验想法"
+  risk_or_limitation: "迁移条件、设备差异和失败风险"
+
+notes: "版本、全文范围、Supporting Information 状态与人工核验记录"

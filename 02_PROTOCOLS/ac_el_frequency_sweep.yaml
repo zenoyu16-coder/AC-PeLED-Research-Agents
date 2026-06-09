@@ -1,0 +1,56 @@
+protocol_id: "ac_el_frequency_sweep"
+version: "1.0"
+goal: "测量 AC-driven PeLED 的 frequency-dependent EL，并区分器件响应、仪器带宽和极化/离子过程的可能贡献。"
+required_inputs:
+  sample_ids: ["To be filled"]
+  device_stack: "To be filled"
+  device_area: "To be filled"
+  waveform_generator: "To be filled"
+  voltage_monitor: "To be filled"
+  current_monitor: "To be filled"
+  optical_detector: "To be filled"
+  detector_bandwidth: "To be filled"
+controlled_variables:
+  - "同批器件或明确记录 batch"
+  - "waveform shape"
+  - "voltage definition: peak / peak-to-peak / RMS"
+  - "duty cycle"
+  - "temperature, atmosphere, encapsulation"
+frequency_range:
+  start: "To be filled"
+  stop: "To be filled"
+  unit: "Hz"
+  points: "To be filled"
+  spacing: "linear / logarithmic / custom"
+  sweep_order: "low-to-high / high-to-low / randomized"
+fixed_parameters:
+  waveform: "To be filled"
+  voltage_amplitude: "To be filled"
+  duty_cycle: "To be filled"
+  cycles_before_recording: "To be filled"
+  integration_window: "To be filled"
+measurements:
+  - "time_s, voltage_V, current_mA, EL_intensity_a.u."
+  - "EL spectrum at selected frequencies"
+  - "device temperature when available"
+  - "before/after reference measurement"
+calculated_metrics:
+  - "positive and negative half-cycle integrated EL"
+  - "R_PN = I_positive / I_negative"
+  - "phase lag between voltage reference and EL response"
+  - "EL intensity normalized to selected reference"
+expected_outputs:
+  - "frequency-response table with raw and normalized metrics"
+  - "voltage/current/EL waveform plots"
+  - "hysteresis check from reverse or repeated sweep"
+critical_checks:
+  - "sampling rate and detector bandwidth exceed the frequency content being interpreted"
+  - "actual voltage across device is monitored, not only generator setting"
+  - "current and optical channels share a verified trigger/time base"
+  - "device degradation is separated from frequency dependence"
+possible_failure_modes:
+  - "detector roll-off mimics EL decrease at high frequency"
+  - "cable/probe impedance changes device voltage"
+  - "self-heating or degradation during sweep"
+  - "insufficient cycles for steady response"
+  - "EL below detector noise floor"

@@ -1,0 +1,58 @@
+protocol_id: "quasi_2d_peled_fabrication"
+version: "1.0"
+goal: "记录并复现 quasi-2D PeLED 制备；本模板不提供未经验证的配方参数。"
+precursor_composition:
+  perovskite_formula: "To be filled"
+  precursor_salts: ["To be filled"]
+  molar_ratios: "To be filled"
+  concentration: "To be filled"
+spacer_cation:
+  identity: "To be filled"
+  ratio: "To be filled"
+  purity: "To be filled"
+solvent:
+  components: ["To be filled"]
+  volume_ratio: "To be filled"
+  additives: ["To be filled"]
+  filtration: "To be filled"
+substrate_preparation:
+  substrate: "To be filled"
+  cleaning: "To be filled"
+  surface_treatment: "To be filled"
+spin_coating:
+  atmosphere: "To be filled"
+  steps:
+    - speed: "To be filled"
+      acceleration: "To be filled"
+      duration: "To be filled"
+antisolvent:
+  identity: "To be filled"
+  volume: "To be filled"
+  timing: "To be filled"
+  delivery_method: "To be filled"
+annealing:
+  temperature: "To be filled"
+  duration: "To be filled"
+  atmosphere: "To be filled"
+device_stack:
+  full_stack: "To be filled"
+  layer_thicknesses: "To be filled"
+  electrode_deposition: "To be filled"
+  device_area: "To be filled"
+  encapsulation: "To be filled"
+characterization:
+  film: ["absorption", "PL", "PLQY", "TRPL", "morphology", "phase/structure"]
+  device: ["J-V-L", "EL spectrum", "EQE", "time-resolved EL", "stability"]
+missing_parameter_checklist:
+  - "precursor concentration and molar ratio"
+  - "spacer identity, ratio and purity"
+  - "solvent/additive identity and aging time"
+  - "spin speed, acceleration and duration"
+  - "antisolvent timing and volume"
+  - "annealing temperature, duration and atmosphere"
+  - "all layer thicknesses and deposition conditions"
+  - "device area, encapsulation and measurement environment"
+quality_controls:
+  - "记录 batch、solution age 与 substrate lot"
+  - "至少设置 reference formulation"
+  - "PLQY/TRPL 结果不得直接替代 device EL/EQE 测量"

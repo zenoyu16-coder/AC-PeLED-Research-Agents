@@ -1,0 +1,40 @@
+protocol_id: "transport_layer_screening"
+version: "1.0"
+goal: "筛选 HTL、ETL、blocking layer 或 injection layer 对 AC EL 注入对称性、界面极化和稳定性的影响。"
+research_question: "To be filled"
+baseline_device:
+  stack: "To be filled"
+  batch: "To be filled"
+screened_layer:
+  role: "HTL / ETL / blocking layer / injection layer"
+  candidates: ["To be filled"]
+  thicknesses: ["To be filled"]
+controlled_variables:
+  - "EML batch and thickness"
+  - "electrode and device area"
+  - "fabrication atmosphere and annealing history"
+  - "AC waveform, frequency, voltage and duty cycle"
+controls:
+  reference_device: "To be filled"
+  single_carrier_devices: "To be filled or mark unavailable"
+  replicate_count: "To be filled"
+measurements:
+  - "energy level or injection-barrier evidence available to the project"
+  - "positive/negative half-cycle current and EL"
+  - "R_PN and phase lag"
+  - "EL spectrum, luminance and stability"
+mandatory_checks:
+  blocks_one_carrier: "Does the layer preferentially block electrons or holes? Evidence: To be filled"
+  causes_unidirectional_injection: "Check whether EL appears mainly in one polarity."
+  changes_EL_symmetry: "Compare I_positive, I_negative and R_PN."
+  changes_ion_accumulation_or_interfacial_polarization: "Use frequency/time dependence and controls; do not infer from one waveform."
+  introduces_injection_barrier: "Check turn-on/current response and independent energy-level evidence."
+expected_outputs:
+  - "candidate-by-metric comparison table"
+  - "mechanism hypotheses separated by evidence level"
+  - "recommended follow-up control"
+failure_modes:
+  - "thickness or morphology changes confound material identity"
+  - "different batches dominate apparent layer effect"
+  - "series resistance and heating mimic injection barrier"
+  - "single champion device hides poor reproducibility"

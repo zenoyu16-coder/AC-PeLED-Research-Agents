@@ -1,0 +1,45 @@
+protocol_id: "ac_stability_test"
+version: "1.0"
+goal: "在明确 AC bias 与环境条件下测量器件亮度、光谱和 waveform 稳定性。"
+sample_ids: ["To be filled"]
+device_area: "To be filled"
+brightness_condition:
+  control_mode: "constant voltage / constant current / constant initial luminance / other"
+  initial_luminance: "To be filled"
+  stabilization_time: "To be filled"
+driving_condition:
+  voltage: "To be filled; specify peak / peak-to-peak / RMS"
+  frequency: "To be filled"
+  waveform: "To be filled"
+  duty_cycle: "To be filled"
+atmosphere:
+  type: "air / N2 / vacuum / controlled humidity"
+  temperature: "To be filled"
+  relative_humidity: "To be filled"
+encapsulation:
+  method: "To be filled"
+  cure_condition: "To be filled"
+lifetime_metric:
+  primary: "T50 / T80 / retention"
+  definition: "time when measured signal first reaches the selected fraction of I0"
+  censoring_rule: "If threshold is not reached, report test duration and not reached."
+measurements:
+  luminance_interval: "To be filled"
+  spectrum_interval: "To be filled"
+  waveform_interval: "To be filled"
+  temperature_interval: "To be filled"
+spectral_stability:
+  metrics: ["EL_peak_nm", "FWHM_nm", "integrated_spectrum", "new spectral features"]
+waveform_stability:
+  metrics: ["I_positive", "I_negative", "R_PN", "phase lag", "current waveform"]
+possible_degradation_mechanisms:
+  - "Joule heating"
+  - "ion migration and interfacial accumulation"
+  - "electrode or transport-layer reaction"
+  - "phase segregation or composition change"
+  - "encapsulation failure or atmosphere exposure"
+critical_checks:
+  - "记录实际器件电压与电流，而不仅是电源设定"
+  - "确认 detector drift 与光路稳定性"
+  - "保留失效器件和异常器件，不只报告 champion"
+  - "退化机制必须由额外证据支持"

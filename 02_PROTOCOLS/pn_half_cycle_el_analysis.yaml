@@ -1,0 +1,43 @@
+protocol_id: "pn_half_cycle_el_analysis"
+version: "1.0"
+goal: "量化正负半周期 EL 强度、对称性与相位关系。"
+required_inputs:
+  voltage_waveform_csv: "To be filled"
+  time_resolved_el_waveform_csv: "To be filled"
+  current_waveform_csv_or_channel: "To be filled"
+voltage_waveform:
+  shape: "To be filled"
+  frequency: "To be filled"
+  voltage_amplitude: "To be filled"
+  duty_cycle: "To be filled"
+  zero_crossing_definition: "voltage_V > 0 为 positive，voltage_V < 0 为 negative"
+time_resolved_EL_waveform:
+  detector: "To be filled"
+  sampling_rate: "To be filled"
+  baseline_correction: "To be filled"
+integrated_EL_intensity_per_half_cycle:
+  positive: "I_positive = integral of baseline-corrected EL over voltage > 0"
+  negative: "I_negative = integral of baseline-corrected EL over voltage < 0"
+PN_ratio:
+  formula: "R_PN = I_positive / I_negative"
+  interpretation: "R_PN 越接近 1，正负半周期 EL 越对称；必须同时报告两个积分值。"
+phase_lag:
+  reference: "voltage zero crossing or voltage fundamental phase"
+  response: "EL onset, EL peak, or cross-correlation peak"
+  method: "To be filled"
+detector_bandwidth:
+  value: "To be filled"
+  check: "不得解释超过 detector/electronics 有效带宽的相位与波形细节"
+current_synchronization:
+  trigger_source: "To be filled"
+  channel_delay_calibration: "To be filled"
+  time_base: "To be filled"
+outputs:
+  - "I_positive, I_negative, R_PN"
+  - "phase lag with method and uncertainty"
+  - "overlaid voltage/current/EL waveform"
+caveats:
+  - "zero-voltage samples不属于任一半周期"
+  - "背景光和 detector offset 会偏置积分"
+  - "不同半周期窗口长度需归一化或明确报告"
+  - "R_PN 接近 1 只表示强度对称，不单独证明相同注入或复合机制"
