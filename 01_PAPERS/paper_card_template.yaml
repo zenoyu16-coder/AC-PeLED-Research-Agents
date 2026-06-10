@@ -5,6 +5,22 @@ journal: "期刊名称"
 year: "发表年份"
 doi: "DOI；不要根据记忆推断"
 paper_type: "AC-driven PeLED / DC PeLED / OLED / materials / review / other"
+source_scope:
+  provided_sources: ["full text / abstract / Supporting Information / figures / report"]
+  sections_reviewed: ["Not explicitly specified in text"]
+  unavailable_sources: ["Not explicitly specified in text"]
+evidence_locator:
+  convention: "page + section + figure/table/supporting item"
+  entries:
+    - claim_id: "claim-001"
+      location: "Not explicitly specified in text"
+      quoted_or_paraphrased_basis: "Not explicitly specified in text"
+extraction_version: "paper-card schema version + extraction date/model or operator"
+critic_status:
+  verdict: "NOT_REVIEWED / PASS / PASS_WITH_REQUIRED_REVISIONS / BLOCKED"
+  reviewed_by: "Not explicitly specified in text"
+  review_date: "Not explicitly specified in text"
+  required_revisions: ["Not explicitly specified in text"]
 
 material_system: "材料体系及关键添加剂"
 perovskite_composition: "名义化学组成与 stoichiometry"

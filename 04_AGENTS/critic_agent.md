@@ -30,3 +30,30 @@
 - `BLOCKED`：关键证据、参数、control 或设备能力不足。
 
 每项问题写明 severity、affected claim、required evidence/fix 和不修复的风险。
+
+## Machine-readable YAML Verdict
+
+人工可读结论之后必须输出一个可解析 YAML block。字段不得删除；没有内容时使用空列表，缺失事实写 `Not explicitly specified in text`。
+
+```yaml
+critic_verdict:
+  schema_version: "1.0"
+  artifact_type: "paper_card / experiment_plan / data_analysis / weekly_log"
+  artifact_id: "Not explicitly specified in text"
+  verdict: "PASS / PASS_WITH_REQUIRED_REVISIONS / BLOCKED"
+  reviewed_by: "Not explicitly specified in text"
+  reviewed_at: "Not explicitly specified in text"
+  checks:
+    - check_id: "AC_DC_MECHANISM_BOUNDARY"
+      status: "PASS / FAIL / NOT_APPLICABLE"
+      severity: "critical / major / minor"
+      affected_claim: "Not explicitly specified in text"
+      evidence_locator: "Not explicitly specified in text"
+      required_fix: "Not explicitly specified in text"
+      risk_if_unfixed: "Not explicitly specified in text"
+  required_revisions: []
+  missing_information: []
+  allowed_next_step: "Not explicitly specified in text"
+```
+
+`verdict` 必须与 checks 一致：存在未解决的 critical failure 时只能为 `BLOCKED`；存在 required revisions 时不能为 `PASS`。

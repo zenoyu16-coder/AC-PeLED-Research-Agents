@@ -2,6 +2,20 @@ protocol_id: "ac_stability_test"
 version: "1.0"
 scope: "AC-driven PeLED 在受控 waveform 与环境条件下的 operating stability 测试"
 goal: "在明确 AC bias 与环境条件下测量器件亮度、光谱和 waveform 稳定性。"
+replicates:
+  independent_devices_per_condition: "Not explicitly specified in text"
+  repeated_runs_per_device: "Not explicitly specified in text"
+  report_planned_completed_failed_censored_counts: true
+statistics:
+  primary_summary: "报告 individual retention curves、median lifetime、IQR 与 censored devices"
+  lifetime_comparison_method: "Not explicitly specified in text"
+  uncertainty: "区分 measurement drift、device variation 与 threshold interpolation uncertainty"
+failed_device_policy:
+  - "early failure、open circuit、short circuit 与未达到 threshold 的 device 分别记录"
+  - "未达到 T50/T80 的测试按 censored data 报告，不写成精确 lifetime"
+exclusion_criteria:
+  - "仅排除预先定义的仪器中断、数据文件损坏或测试前确认的接触失效"
+  - "退化过快或表现较差不是排除理由"
 sample_ids: ["Not explicitly specified in text"]
 device_area: "Not explicitly specified in text"
 brightness_condition:

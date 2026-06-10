@@ -4,6 +4,30 @@
 
 本仓库的目标是用清晰、可审计的文件契约统一管理文献阅读、实验 protocol、数据分析、机理判断和研究日志。第一版刻意保持简单：Markdown/YAML 负责知识与流程，Python 负责可复现的数据计算。
 
+## Quick Start
+
+### First paper card
+
+1. 复制 `01_PAPERS/examples/example_paper_card.yaml`，用 paper ID 重命名。
+2. 根据全文、Supporting Information 和 figures 填写 `01_PAPERS/paper_card_template.yaml` 定义的字段。
+3. 每条 evidence 写入 `evidence_locator`，定位到 page、section、figure、table 或 supporting item。
+4. 未在来源中明确说明的信息写 `Not explicitly specified in text`。
+5. 使用 `04_AGENTS/critic_agent.md` 审核，并更新 `critic_status`。
+
+### First protocol
+
+1. 从 `02_PROTOCOLS/` 选择与 research question 最接近的模板。
+2. 参考 `02_PROTOCOLS/examples/example_filled_pn_half_cycle_protocol.yaml` 理解填写粒度；该示例仅含 synthetic parameters，不代表推荐实验条件。
+3. 用已核验的设备与实验参数替换 `Not explicitly specified in text`。
+4. 在执行前锁定 replicates、statistics、failed-device policy、exclusion criteria 与 controls。
+
+### First data analysis
+
+1. 安装最小依赖：`python -m pip install -r requirements.txt`。
+2. 阅读 `03_DATA_ANALYSIS/data_format_standard.md`，确认 CSV header 与 metadata。
+3. 按 `03_DATA_ANALYSIS/run_example_analysis.md` 运行 synthetic waveform 与 stability examples。
+4. 把脚本输出放在本地 analysis output 目录，不提交生成的图片、JSON 或 processed data。
+
 ## 项目目标
 
 - 用 `paper card` 结构化文献，而不是只写自由文本总结。

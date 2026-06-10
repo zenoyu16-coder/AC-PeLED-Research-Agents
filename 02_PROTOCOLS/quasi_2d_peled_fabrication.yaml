@@ -2,6 +2,21 @@ protocol_id: "quasi_2d_peled_fabrication"
 version: "1.0"
 scope: "quasi-2D PeLED precursor、film formation、device fabrication 与 characterization"
 goal: "记录并复现 quasi-2D PeLED 制备；本模板不提供未经验证的配方参数。"
+replicates:
+  independent_solution_batches: "Not explicitly specified in text"
+  substrates_per_condition: "Not explicitly specified in text"
+  devices_per_substrate: "Not explicitly specified in text"
+  report_planned_fabricated_measured_failed_counts: true
+statistics:
+  primary_summary: "报告 device-level distribution、median、IQR、yield 与 batch effect"
+  comparison_method: "Not explicitly specified in text"
+  uncertainty: "区分 solution batch、substrate、pixel/device 与 measurement variation"
+failed_device_policy:
+  - "fabrication failure、short/open、non-emissive pixel 与 unstable contact 分别记录"
+  - "所有 fabricated devices 进入 yield denominator，除非满足预先定义 exclusion"
+exclusion_criteria:
+  - "仅排除预先定义的 substrate breakage、masking error、instrument file corruption"
+  - "不得只保留 champion pixels 或按 EQE/luminance 事后筛选"
 precursor_composition:
   perovskite_formula: "Not explicitly specified in text"
   precursor_salts: ["Not explicitly specified in text"]

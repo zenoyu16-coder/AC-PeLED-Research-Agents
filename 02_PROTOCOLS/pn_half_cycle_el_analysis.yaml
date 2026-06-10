@@ -2,6 +2,20 @@ protocol_id: "pn_half_cycle_el_analysis"
 version: "1.0"
 scope: "AC-driven PeLED 正负半周期 electroluminescence 对称性分析"
 goal: "量化正负半周期 EL 强度、对称性与相位关系。"
+replicates:
+  independent_devices: "Not explicitly specified in text"
+  cycles_analyzed_per_device: "Not explicitly specified in text"
+  repeated_acquisitions: "Not explicitly specified in text"
+statistics:
+  primary_summary: "分别报告 integrated、peak、duration-normalized PN ratios 的 individual values、median 与 IQR"
+  cycle_aggregation: "先在 device 内汇总 cycles，再进行 device-level comparison"
+  uncertainty: "记录 baseline、time-window、detector noise 与 channel-delay sensitivity"
+failed_device_policy:
+  - "无 EL、单极性 EL、trigger failure、detector saturation 分开标记"
+  - "negative half-cycle 为零时不生成无穷 ratio；报告原始积分值与 undefined reason"
+exclusion_criteria:
+  - "仅排除预先定义的 detector saturation、trigger loss、corrupted file 或无有效 half-cycle window"
+  - "PN asymmetry 本身不是排除理由"
 required_inputs:
   voltage_waveform_csv: "Not explicitly specified in text"
   time_resolved_el_waveform_csv: "Not explicitly specified in text"
@@ -20,8 +34,17 @@ integrated_EL_intensity_per_half_cycle:
   positive: "I_positive = integral of baseline-corrected EL over voltage > 0"
   negative: "I_negative = integral of baseline-corrected EL over voltage < 0"
 PN_ratio:
-  formula: "R_PN = I_positive / I_negative"
-  interpretation: "R_PN 越接近 1，正负半周期 EL 越对称；必须同时报告两个积分值。"
+  integrated_PN_ratio:
+    formula: "R_PN_integrated = integral(EL_positive dt) / integral(EL_negative dt)"
+    report_with: "positive/negative integration windows、baseline method、两个积分值"
+  peak_PN_ratio:
+    formula: "R_PN_peak = peak(EL_positive) / peak(EL_negative)"
+    report_with: "peak detection method、sampling rate、smoothing/filtering status"
+  duration_normalized_PN_ratio:
+    formula: "R_PN_duration_normalized = mean(EL_positive) / mean(EL_negative)"
+    equivalent_definition: "(I_positive / duration_positive) / (I_negative / duration_negative)"
+    report_with: "两个 half-cycle duration 与有效 sample count"
+  interpretation: "ratio 越接近 1 仅表示所选定义下的 EL 对称性；必须明确 ratio type 并同时报告 numerator 与 denominator。"
 phase_lag:
   reference: "voltage zero crossing or voltage fundamental phase"
   response: "EL onset, EL peak, or cross-correlation peak"
@@ -34,7 +57,8 @@ current_synchronization:
   channel_delay_calibration: "Not explicitly specified in text"
   time_base: "Not explicitly specified in text"
 outputs:
-  - "I_positive, I_negative, R_PN"
+  - "I_positive, I_negative, positive/negative peaks and durations"
+  - "integrated, peak and duration-normalized PN ratios"
   - "phase lag with method and uncertainty"
   - "overlaid voltage/current/EL waveform"
 caveats:

@@ -1,0 +1,58 @@
+# Synthetic planning example only. Values are illustrative, not recommended conditions.
+protocol_id: "pn_half_cycle_el_analysis_example"
+template_source: "../pn_half_cycle_el_analysis.yaml"
+version: "1.0-synthetic"
+scope: "Synthetic AC-driven PeLED positive/negative half-cycle EL analysis"
+goal: "Demonstrate the required planning detail without using real experimental data."
+replicates:
+  independent_devices: 3
+  cycles_analyzed_per_device: 4
+  repeated_acquisitions: 2
+statistics:
+  primary_summary: "Report individual device ratios, median and IQR."
+  cycle_aggregation: "Median across valid cycles within each device."
+  uncertainty: "Recalculate after synthetic baseline variation."
+failed_device_policy:
+  - "Retain no-EL and one-polarity-EL devices in the failure table."
+  - "Do not calculate a finite ratio when the denominator is zero."
+exclusion_criteria:
+  - "Exclude only synthetic traces marked detector_saturation or trigger_loss."
+  - "PN asymmetry is not an exclusion criterion."
+required_inputs:
+  voltage_waveform_csv: "../../03_DATA_ANALYSIS/examples/example_waveform.csv"
+  time_resolved_el_waveform_csv: "../../03_DATA_ANALYSIS/examples/example_waveform.csv"
+  current_waveform_csv_or_channel: "../../03_DATA_ANALYSIS/examples/example_waveform.csv"
+voltage_waveform:
+  shape: "square wave; synthetic"
+  frequency: "100 Hz; synthetic"
+  voltage_amplitude: "6 V peak-to-peak; synthetic"
+  duty_cycle: "50%; synthetic"
+  zero_crossing_definition: "voltage_V > 0 is positive; voltage_V < 0 is negative"
+time_resolved_EL_waveform:
+  detector: "synthetic detector"
+  sampling_rate: "2000 samples s^-1; synthetic"
+  baseline_correction: "none"
+PN_ratio:
+  integrated_PN_ratio:
+    formula: "R_PN_integrated = integral(EL_positive dt) / integral(EL_negative dt)"
+  peak_PN_ratio:
+    formula: "R_PN_peak = peak(EL_positive) / peak(EL_negative)"
+  duration_normalized_PN_ratio:
+    formula: "R_PN_duration_normalized = mean(EL_positive) / mean(EL_negative)"
+phase_lag:
+  reference: "voltage waveform"
+  response: "EL waveform"
+  method: "cross-correlation placeholder; synthetic"
+detector_bandwidth:
+  value: "Not explicitly specified in text"
+  check: "Do not physically interpret phase lag without a verified bandwidth."
+current_synchronization:
+  trigger_source: "shared synthetic time axis"
+  channel_delay_calibration: "Not explicitly specified in text"
+  time_base: "time_s"
+outputs:
+  - "Integrated PN ratio"
+  - "Peak PN ratio"
+  - "Duration-normalized PN ratio"
+caveats:
+  - "All values are synthetic and must not be cited as experimental results."

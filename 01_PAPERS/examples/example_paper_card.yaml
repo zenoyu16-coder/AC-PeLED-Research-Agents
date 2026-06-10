@@ -1,0 +1,96 @@
+# Synthetic structure example only. This is not a real paper or citation.
+title: "Synthetic AC-driven PeLED paper card example"
+authors: ["Synthetic Author"]
+journal: "Synthetic example; not a publication"
+year: "Not explicitly specified in text"
+doi: "Not explicitly specified in text"
+paper_type: "AC-driven PeLED"
+source_scope:
+  provided_sources: ["synthetic summary", "synthetic figure notes"]
+  sections_reviewed: ["device concept", "waveform observation"]
+  unavailable_sources: ["full text", "Supporting Information"]
+evidence_locator:
+  convention: "page + section + figure/table/supporting item"
+  entries:
+    - claim_id: "claim-001"
+      location: "Synthetic Figure 1"
+      quoted_or_paraphrased_basis: "Synthetic waveform shows EL in both voltage polarities."
+extraction_version: "schema 1.1; synthetic example"
+critic_status:
+  verdict: "PASS_WITH_REQUIRED_REVISIONS"
+  reviewed_by: "Synthetic Critic"
+  review_date: "Not explicitly specified in text"
+  required_revisions:
+    - "Replace all synthetic content with evidence from the reviewed source."
+
+material_system: "Synthetic perovskite emissive layer"
+perovskite_composition: "Not explicitly specified in text"
+dimensionality: "quasi-2D"
+emission_color: "Not explicitly specified in text"
+
+device:
+  device_stack: "Not explicitly specified in text"
+  substrate: "Not explicitly specified in text"
+  HTL: "Not explicitly specified in text"
+  EML: "Synthetic quasi-2D perovskite"
+  ETL: "Not explicitly specified in text"
+  electrode: "Not explicitly specified in text"
+  device_area: "Not explicitly specified in text"
+  encapsulation: "Not explicitly specified in text"
+
+driving_condition:
+  mode: "AC"
+  waveform: "square wave; synthetic example"
+  frequency: "Not explicitly specified in text"
+  voltage_amplitude: "Not explicitly specified in text"
+  duty_cycle: "Not explicitly specified in text"
+  current_density: "Not explicitly specified in text"
+  measurement_environment: "Not explicitly specified in text"
+
+performance:
+  EL_peak: "Not explicitly specified in text"
+  FWHM: "Not explicitly specified in text"
+  CIE: "Not explicitly specified in text"
+  luminance: "Not explicitly specified in text"
+  EQE: "Not explicitly specified in text"
+  turn_on_voltage: "Not explicitly specified in text"
+  positive_half_cycle_EL: "Synthetic observation: detected"
+  negative_half_cycle_EL: "Synthetic observation: detected"
+  PN_ratio: "Not explicitly specified in text"
+  lifetime: "Not explicitly specified in text"
+  stability_protocol: "Not explicitly specified in text"
+
+mechanism:
+  main_claim: "Synthetic hypothesis: bipolar half-cycle response"
+  material_structure_link: "Not explicitly specified in text"
+  carrier_transport_link: "Not explicitly specified in text"
+  ion_migration_or_polarization: "Author hypothesis only in this synthetic example"
+  recombination_mechanism: "Not explicitly specified in text"
+  degradation_mechanism: "Not explicitly specified in text"
+
+evidence:
+  direct_evidence:
+    - "Synthetic Figure 1: EL signal appears in positive and negative voltage windows."
+  indirect_evidence:
+    - "Not explicitly specified in text"
+  author_hypothesis:
+    - "Interfacial polarization may affect half-cycle response; not directly proven."
+  missing_details:
+    - "Detector bandwidth"
+    - "Device area"
+    - "Replicate count"
+
+figures_to_understand:
+  - figure: "Synthetic Figure 1"
+    role: "Compare voltage polarity and time-resolved EL."
+    key_trend: "EL appears in both half-cycles."
+    claim_supported: "Direct evidence for bipolar EL occurrence, not mechanism."
+    caveat: "Synthetic example; detector bandwidth and controls are unavailable."
+
+relevance_to_my_project:
+  useful_idea: "Use half-cycle resolved metrics instead of cycle-averaged EL alone."
+  transferable_protocol: "02_PROTOCOLS/pn_half_cycle_el_analysis.yaml"
+  possible_experiment: "Compare integrated, peak and duration-normalized PN ratios."
+  risk_or_limitation: "Synthetic example cannot support a scientific conclusion."
+
+notes: "Replace this file with a source-backed paper card before research use."

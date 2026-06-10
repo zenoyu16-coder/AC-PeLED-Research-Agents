@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+/analysis_output/
+**/analysis_output/
+metrics.json
+*.png
+*.pdf
+
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak

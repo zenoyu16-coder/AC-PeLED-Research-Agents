@@ -2,6 +2,21 @@ protocol_id: "transport_layer_screening"
 version: "1.0"
 scope: "AC-driven PeLED 中 HTL、ETL、blocking layer 与 injection layer 筛选"
 goal: "筛选 HTL、ETL、blocking layer 或 injection layer 对 AC EL 注入对称性、界面极化和稳定性的影响。"
+replicates:
+  independent_devices_per_candidate: "Not explicitly specified in text"
+  fabrication_batches: "Not explicitly specified in text"
+  repeated_measurements_per_device: "Not explicitly specified in text"
+  report_planned_completed_failed_counts: true
+statistics:
+  primary_summary: "按 candidate 报告 individual devices、median、IQR、yield 与 batch"
+  comparison_method: "Not explicitly specified in text"
+  multiple_comparison_policy: "若同时比较多个 layers，预先定义 correction 或 exploratory status"
+failed_device_policy:
+  - "short/open/no-EL devices 保留在 yield 与 failure analysis"
+  - "记录 failure 与 layer deposition、contact、EML batch 的时间关系"
+exclusion_criteria:
+  - "仅排除预先定义的 fabrication handling damage、confirmed contact failure 或 corrupted acquisition"
+  - "不得按 PN ratio、luminance 或 EQE 结果事后排除"
 research_question: "Not explicitly specified in text"
 baseline_device:
   stack: "Not explicitly specified in text"

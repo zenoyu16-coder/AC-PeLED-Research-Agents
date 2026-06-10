@@ -2,6 +2,20 @@ protocol_id: "ac_el_frequency_sweep"
 version: "1.0"
 scope: "AC-driven PeLED 的 frequency-dependent electroluminescence 测试"
 goal: "测量 AC-driven PeLED 的 frequency-dependent EL，并区分器件响应、仪器带宽和极化/离子过程的可能贡献。"
+replicates:
+  independent_devices_per_condition: "Not explicitly specified in text"
+  waveform_repeats_per_device: "Not explicitly specified in text"
+  report_planned_completed_failed_counts: true
+statistics:
+  primary_summary: "按 frequency 报告 median、IQR、individual devices 和有效样本数"
+  comparison_method: "Not explicitly specified in text"
+  uncertainty: "同时报告 device-to-device variation 与 repeated-waveform variation"
+failed_device_policy:
+  - "所有通电后 open/short/no-EL devices 均计入 planned 与 failed counts"
+  - "failed device 不从 denominator 静默删除；保留 failure stage 与可能原因"
+exclusion_criteria:
+  - "仅使用实验前定义的仪器饱和、触发失败、文件损坏或确认接触失效标准"
+  - "不得因结果偏离趋势或降低平均值而排除"
 required_inputs:
   sample_ids: ["Not explicitly specified in text"]
   device_stack: "Not explicitly specified in text"
