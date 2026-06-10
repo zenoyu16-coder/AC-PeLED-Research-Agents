@@ -23,7 +23,7 @@
 
 ## Fabrication Details
 
-所有未填写参数标为 `To be filled`，实验完成后不得保留未知关键参数。
+所有缺失参数标为 `Not explicitly specified in text`；实验执行前必须核验并替换关键参数。
 
 ## Measurement Conditions
 
@@ -60,4 +60,3 @@
 - Completion criterion:
 
 ## Critic Verdict
-

@@ -55,7 +55,7 @@
 
 1. 用 `04_AGENTS/research_manager.md` 把 research question 改写为可检验问题。
 2. 根据变量选择 `02_PROTOCOLS/` 中最接近的模板。
-3. 复制 protocol，并填写所有 `To be filled`。
+3. 复制 protocol，逐项核验并用真实实验参数替换 `Not explicitly specified in text`。
 4. 明确 independent variables、controlled variables、controls、measurements 与 stopping criteria。
 5. 在实验开始前由 `critic_agent` 检查 waveform、frequency、voltage、detector bandwidth、atmosphere、encapsulation 和 device area。
 

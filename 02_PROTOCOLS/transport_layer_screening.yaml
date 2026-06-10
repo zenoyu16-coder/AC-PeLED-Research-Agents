@@ -1,30 +1,31 @@
 protocol_id: "transport_layer_screening"
 version: "1.0"
+scope: "AC-driven PeLED 中 HTL、ETL、blocking layer 与 injection layer 筛选"
 goal: "筛选 HTL、ETL、blocking layer 或 injection layer 对 AC EL 注入对称性、界面极化和稳定性的影响。"
-research_question: "To be filled"
+research_question: "Not explicitly specified in text"
 baseline_device:
-  stack: "To be filled"
-  batch: "To be filled"
+  stack: "Not explicitly specified in text"
+  batch: "Not explicitly specified in text"
 screened_layer:
   role: "HTL / ETL / blocking layer / injection layer"
-  candidates: ["To be filled"]
-  thicknesses: ["To be filled"]
+  candidates: ["Not explicitly specified in text"]
+  thicknesses: ["Not explicitly specified in text"]
 controlled_variables:
   - "EML batch and thickness"
   - "electrode and device area"
   - "fabrication atmosphere and annealing history"
   - "AC waveform, frequency, voltage and duty cycle"
 controls:
-  reference_device: "To be filled"
-  single_carrier_devices: "To be filled or mark unavailable"
-  replicate_count: "To be filled"
+  reference_device: "Not explicitly specified in text"
+  single_carrier_devices: "Not explicitly specified in text or mark unavailable"
+  replicate_count: "Not explicitly specified in text"
 measurements:
   - "energy level or injection-barrier evidence available to the project"
   - "positive/negative half-cycle current and EL"
   - "R_PN and phase lag"
   - "EL spectrum, luminance and stability"
 mandatory_checks:
-  blocks_one_carrier: "Does the layer preferentially block electrons or holes? Evidence: To be filled"
+  blocks_one_carrier: "Does the layer preferentially block electrons or holes? Evidence: Not explicitly specified in text"
   causes_unidirectional_injection: "Check whether EL appears mainly in one polarity."
   changes_EL_symmetry: "Compare I_positive, I_negative and R_PN."
   changes_ion_accumulation_or_interfacial_polarization: "Use frequency/time dependence and controls; do not infer from one waveform."

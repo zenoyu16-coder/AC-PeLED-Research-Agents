@@ -1,45 +1,46 @@
 protocol_id: "quasi_2d_peled_fabrication"
 version: "1.0"
+scope: "quasi-2D PeLED precursor、film formation、device fabrication 与 characterization"
 goal: "记录并复现 quasi-2D PeLED 制备；本模板不提供未经验证的配方参数。"
 precursor_composition:
-  perovskite_formula: "To be filled"
-  precursor_salts: ["To be filled"]
-  molar_ratios: "To be filled"
-  concentration: "To be filled"
+  perovskite_formula: "Not explicitly specified in text"
+  precursor_salts: ["Not explicitly specified in text"]
+  molar_ratios: "Not explicitly specified in text"
+  concentration: "Not explicitly specified in text"
 spacer_cation:
-  identity: "To be filled"
-  ratio: "To be filled"
-  purity: "To be filled"
+  identity: "Not explicitly specified in text"
+  ratio: "Not explicitly specified in text"
+  purity: "Not explicitly specified in text"
 solvent:
-  components: ["To be filled"]
-  volume_ratio: "To be filled"
-  additives: ["To be filled"]
-  filtration: "To be filled"
+  components: ["Not explicitly specified in text"]
+  volume_ratio: "Not explicitly specified in text"
+  additives: ["Not explicitly specified in text"]
+  filtration: "Not explicitly specified in text"
 substrate_preparation:
-  substrate: "To be filled"
-  cleaning: "To be filled"
-  surface_treatment: "To be filled"
+  substrate: "Not explicitly specified in text"
+  cleaning: "Not explicitly specified in text"
+  surface_treatment: "Not explicitly specified in text"
 spin_coating:
-  atmosphere: "To be filled"
+  atmosphere: "Not explicitly specified in text"
   steps:
-    - speed: "To be filled"
-      acceleration: "To be filled"
-      duration: "To be filled"
+    - speed: "Not explicitly specified in text"
+      acceleration: "Not explicitly specified in text"
+      duration: "Not explicitly specified in text"
 antisolvent:
-  identity: "To be filled"
-  volume: "To be filled"
-  timing: "To be filled"
-  delivery_method: "To be filled"
+  identity: "Not explicitly specified in text"
+  volume: "Not explicitly specified in text"
+  timing: "Not explicitly specified in text"
+  delivery_method: "Not explicitly specified in text"
 annealing:
-  temperature: "To be filled"
-  duration: "To be filled"
-  atmosphere: "To be filled"
+  temperature: "Not explicitly specified in text"
+  duration: "Not explicitly specified in text"
+  atmosphere: "Not explicitly specified in text"
 device_stack:
-  full_stack: "To be filled"
-  layer_thicknesses: "To be filled"
-  electrode_deposition: "To be filled"
-  device_area: "To be filled"
-  encapsulation: "To be filled"
+  full_stack: "Not explicitly specified in text"
+  layer_thicknesses: "Not explicitly specified in text"
+  electrode_deposition: "Not explicitly specified in text"
+  device_area: "Not explicitly specified in text"
+  encapsulation: "Not explicitly specified in text"
 characterization:
   film: ["absorption", "PL", "PLQY", "TRPL", "morphology", "phase/structure"]
   device: ["J-V-L", "EL spectrum", "EQE", "time-resolved EL", "stability"]

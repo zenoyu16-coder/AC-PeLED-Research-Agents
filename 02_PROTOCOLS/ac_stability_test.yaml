@@ -1,33 +1,34 @@
 protocol_id: "ac_stability_test"
 version: "1.0"
+scope: "AC-driven PeLED 在受控 waveform 与环境条件下的 operating stability 测试"
 goal: "在明确 AC bias 与环境条件下测量器件亮度、光谱和 waveform 稳定性。"
-sample_ids: ["To be filled"]
-device_area: "To be filled"
+sample_ids: ["Not explicitly specified in text"]
+device_area: "Not explicitly specified in text"
 brightness_condition:
   control_mode: "constant voltage / constant current / constant initial luminance / other"
-  initial_luminance: "To be filled"
-  stabilization_time: "To be filled"
+  initial_luminance: "Not explicitly specified in text"
+  stabilization_time: "Not explicitly specified in text"
 driving_condition:
-  voltage: "To be filled; specify peak / peak-to-peak / RMS"
-  frequency: "To be filled"
-  waveform: "To be filled"
-  duty_cycle: "To be filled"
+  voltage: "Not explicitly specified in text; specify peak / peak-to-peak / RMS"
+  frequency: "Not explicitly specified in text"
+  waveform: "Not explicitly specified in text"
+  duty_cycle: "Not explicitly specified in text"
 atmosphere:
   type: "air / N2 / vacuum / controlled humidity"
-  temperature: "To be filled"
-  relative_humidity: "To be filled"
+  temperature: "Not explicitly specified in text"
+  relative_humidity: "Not explicitly specified in text"
 encapsulation:
-  method: "To be filled"
-  cure_condition: "To be filled"
+  method: "Not explicitly specified in text"
+  cure_condition: "Not explicitly specified in text"
 lifetime_metric:
   primary: "T50 / T80 / retention"
   definition: "time when measured signal first reaches the selected fraction of I0"
   censoring_rule: "If threshold is not reached, report test duration and not reached."
 measurements:
-  luminance_interval: "To be filled"
-  spectrum_interval: "To be filled"
-  waveform_interval: "To be filled"
-  temperature_interval: "To be filled"
+  luminance_interval: "Not explicitly specified in text"
+  spectrum_interval: "Not explicitly specified in text"
+  waveform_interval: "Not explicitly specified in text"
+  temperature_interval: "Not explicitly specified in text"
 spectral_stability:
   metrics: ["EL_peak_nm", "FWHM_nm", "integrated_spectrum", "new spectral features"]
 waveform_stability:

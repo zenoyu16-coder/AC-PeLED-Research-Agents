@@ -19,7 +19,7 @@
 
 ## Rules
 
-- protocol 中每个 `To be filled` 必须在执行前处理。
+- protocol 中每个 `Not explicitly specified in text` 必须在执行前由可追溯的真实参数替换。
 - 不编造设备不存在的 bandwidth、同步、温控或自动化能力。
 - 未确认能力写为 dependency，并给出替代测量方案。
 - 一次实验尽量回答一个主要因果问题。
