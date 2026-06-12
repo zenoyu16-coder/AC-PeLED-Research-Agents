@@ -87,13 +87,13 @@ claim_evidence_records:
     verification_status: "VERIFIED"
   - claim_id: "claim-003"
     claim: "AC driving reduces EQE roll-off at high current density relative to DC driving."
-    evidence_locator: "Figure 1f and Figure S12; J90 = 330 mA cm^-2 under DC and expected to exceed 500 mA cm^-2 under AC."
-    support_class: "direct evidence"
+    evidence_locator: "Figure 1f and Figure S12 directly support the reduced EQE roll-off trend; J90 = 330 mA cm^-2 was determined under DC, while AC J90 exceeding 500 mA cm^-2 was anticipated because the crossing point was not directly reached."
+    support_class: "direct evidence for reduced EQE roll-off trend; inferred/estimated support for AC J90 exceeding 500 mA cm^-2"
     verification_status: "VERIFIED"
   - claim_id: "claim-004"
     claim: "Ion migration is suppressed under AC driving relative to DC driving in the studied FAPbI3 system."
     evidence_locator: "Figure 4a-d TOF-SIMS ion distributions and Figure 4h,i lateral-field optical microscopy."
-    support_class: "direct evidence"
+    support_class: "direct evidence for reduced iodine redistribution after AC/DC aging comparison; full suppressed-ion-migration mechanism remains direct + indirect mixed evidence"
     verification_status: "VERIFIED"
 extraction_version: "paper-card schema 1.1; extracted and source-checked 2026-06-12"
 critic_status:
@@ -144,7 +144,7 @@ mechanism:
   main_claim: "Alternating voltage suppresses ion migration and improves PeLED operational and spectral stability."
   material_structure_link: "TOF-SIMS and reconstructed iodine distributions show less iodine accumulation after AC aging than after DC aging; Figure 4a-d."
   carrier_transport_link: "The authors attribute lower EQE roll-off to periodic charge injection reducing charge-carrier accumulation; this is an author interpretation supported by the J90 comparison."
-  ion_migration_or_polarization: "Direct figure-level evidence is available from TOF-SIMS and lateral-field microscopy; hysteresis and tDOS provide additional indirect support."
+  ion_migration_or_polarization: "TOF-SIMS and lateral-field microscopy provide direct evidence for different iodine redistribution/damage patterns under AC and DC treatment; assigning this entirely to suppressed ion migration requires support from hysteresis, tDOS, and the authors' field-reversal interpretation."
   recombination_mechanism: "The authors attribute reduced high-current roll-off to mitigation of Auger-related exciton-charge annihilation under periodic injection."
   degradation_mechanism: "Under DC, iodine species migrate toward the anode-side interface and are associated with hysteresis, trap-state formation, spectral drift, and rapid operational decay."
 
@@ -152,8 +152,8 @@ evidence:
   direct_evidence:
     - "Figure 3a: measured FAPbI3 T50 was 424 min under AC and 10.3 min under DC under the same stated conditions."
     - "Figure 3b,c,e,f: time-dependent spectra show improved spectral stability under AC operation."
-    - "Figure 1f: AC and DC EQE-current behavior shows reduced roll-off under AC; reported J90 is 330 mA cm^-2 under DC and expected to exceed 500 mA cm^-2 under AC."
-    - "Figure 4a-d: TOF-SIMS depth profiles and reconstructed iodine distributions show less interfacial iodine accumulation after AC aging."
+    - "Figure 1f: AC and DC EQE-current behavior directly shows a reduced roll-off trend under AC; J90 is 330 mA cm^-2 under DC, while AC J90 exceeding 500 mA cm^-2 is inferred/estimated because the crossing point was not directly measured."
+    - "Figure 4a-d: TOF-SIMS directly supports reduced iodine accumulation/redistribution after AC aging relative to DC aging; TOF-SIMS alone does not completely prove the full suppressed-ion-migration mechanism."
     - "Figure 4h,i: lateral-field microscopy shows visible damage under DC and no obvious damage after longer AC exposure."
   indirect_evidence:
     - "Figure 4e,f: stronger and cycle-dependent J-V hysteresis under DC than AC is consistent with greater mobile-ion redistribution."
