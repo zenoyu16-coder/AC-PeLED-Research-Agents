@@ -26,10 +26,22 @@ voltage_waveform:
   voltage_amplitude: "Not explicitly specified in text"
   duty_cycle: "Not explicitly specified in text"
   zero_crossing_definition: "voltage_V > 0 为 positive，voltage_V < 0 为 negative"
+polarity_convention:
+  positive_half_cycle: "按器件端电压与 electrode connection 定义；Not explicitly specified in text"
+  negative_half_cycle: "与 positive 定义相反；Not explicitly specified in text"
+  electrode_reference: "Not explicitly specified in text"
+device_terminal_voltage_verification:
+  method: "直接测量器件端电压；Not explicitly specified in text"
+  probe_location: "Not explicitly specified in text"
+  generator_setting_only_is_insufficient: true
 time_resolved_EL_waveform:
   detector: "Not explicitly specified in text"
   sampling_rate: "Not explicitly specified in text"
   baseline_correction: "Not explicitly specified in text"
+integration_window_definition:
+  positive_window: "以已校准的 device-terminal voltage > 0 区间定义"
+  negative_window: "以已校准的 device-terminal voltage < 0 区间定义"
+  boundary_samples: "zero crossing 附近样本的处理方法；Not explicitly specified in text"
 integrated_EL_intensity_per_half_cycle:
   positive: "I_positive = integral of baseline-corrected EL over voltage > 0"
   negative: "I_negative = integral of baseline-corrected EL over voltage < 0"
@@ -52,10 +64,21 @@ phase_lag:
 detector_bandwidth:
   value: "Not explicitly specified in text"
   check: "不得解释超过 detector/electronics 有效带宽的相位与波形细节"
+detector_response_control:
+  reference_signal_or_source: "Not explicitly specified in text"
+  frequency_response_check: "确认 detector response 不会制造或抹去 PN asymmetry"
+  control_result: "Not explicitly specified in text"
 current_synchronization:
   trigger_source: "Not explicitly specified in text"
   channel_delay_calibration: "Not explicitly specified in text"
   time_base: "Not explicitly specified in text"
+displacement_current_caveat:
+  statement: "电流波形可能包含 displacement/capacitive current，不得自动等同于 carrier injection current。"
+  separation_method: "Not explicitly specified in text"
+interpretation_boundary:
+  measured_observation: "分别报告 I_positive、I_negative、R_PN 与 phase lag，不附加机制结论。"
+  mechanism_interpretation: "ion migration、interfacial polarization 或 injection asymmetry 必须由额外 controls 支持。"
+  unsupported_interpretation: "UNVERIFIED"
 outputs:
   - "I_positive, I_negative, positive/negative peaks and durations"
   - "integrated, peak and duration-normalized PN ratios"
@@ -66,3 +89,4 @@ caveats:
   - "背景光和 detector offset 会偏置积分"
   - "不同半周期窗口长度需归一化或明确报告"
   - "R_PN 接近 1 只表示强度对称，不单独证明相同注入或复合机制"
+  - "未分离 displacement current 时，不得将 current peak 直接解释为 carrier injection"

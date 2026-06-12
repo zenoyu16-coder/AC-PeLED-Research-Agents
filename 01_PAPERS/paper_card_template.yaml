@@ -5,16 +5,31 @@ journal: "期刊名称"
 year: "发表年份"
 doi: "DOI；不要根据记忆推断"
 paper_type: "AC-driven PeLED / DC PeLED / OLED / materials / review / other"
+source_verification:
+  status: "VERIFIED / UNVERIFIED"
+  metadata_checked_against: ["DOI resolver / publisher page / authoritative index"]
+  verification_date: "Not explicitly specified in text"
+  notes: "Not explicitly specified in text"
+architecture_scope: "PeLED / PeLEFET / OLED / material-only / review / other"
 source_scope:
   provided_sources: ["full text / abstract / Supporting Information / figures / report"]
   sections_reviewed: ["Not explicitly specified in text"]
   unavailable_sources: ["Not explicitly specified in text"]
+parameter_provenance:
+  explicitly_reported: ["parameter + source location"]
+  unsupported_or_missing: ["Not explicitly specified in text"]
 evidence_locator:
   convention: "page + section + figure/table/supporting item"
   entries:
     - claim_id: "claim-001"
       location: "Not explicitly specified in text"
       quoted_or_paraphrased_basis: "Not explicitly specified in text"
+claim_evidence_records:
+  - claim_id: "claim-001"
+    claim: "Not explicitly specified in text"
+    evidence_locator: "Not explicitly specified in text"
+    support_class: "direct evidence / indirect support / author hypothesis / background context"
+    verification_status: "VERIFIED / UNVERIFIED"
 extraction_version: "paper-card schema version + extraction date/model or operator"
 critic_status:
   verdict: "NOT_REVIEWED / PASS / PASS_WITH_REQUIRED_REVISIONS / BLOCKED"
@@ -90,4 +105,8 @@ relevance_to_my_project:
   possible_experiment: "可证伪的小规模实验想法"
   risk_or_limitation: "迁移条件、设备差异和失败风险"
 
+uncertainty_notes:
+  - "证据范围、参数缺失或解释不确定性；没有时使用空列表"
+unresolved_contradictions:
+  - "来源之间或同一论文内部尚未解决的矛盾；没有时使用空列表"
 notes: "版本、全文范围、Supporting Information 状态与人工核验记录"

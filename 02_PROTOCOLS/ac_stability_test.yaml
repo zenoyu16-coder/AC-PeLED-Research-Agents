@@ -18,6 +18,10 @@ exclusion_criteria:
   - "退化过快或表现较差不是排除理由"
 sample_ids: ["Not explicitly specified in text"]
 device_area: "Not explicitly specified in text"
+preconditioning:
+  method: "Not explicitly specified in text"
+  duration: "Not explicitly specified in text"
+  acceptance_check: "记录测试前 luminance、spectrum、voltage 与 current 是否稳定"
 brightness_condition:
   control_mode: "constant voltage / constant current / constant initial luminance / other"
   initial_luminance: "Not explicitly specified in text"
@@ -27,6 +31,10 @@ driving_condition:
   frequency: "Not explicitly specified in text"
   waveform: "Not explicitly specified in text"
   duty_cycle: "Not explicitly specified in text"
+ac_dc_matching_criteria:
+  primary_basis: "initial luminance / current density / RMS power / accumulated charge / peak field / other"
+  value_and_tolerance: "Not explicitly specified in text"
+  unmatched_factors: ["Not explicitly specified in text"]
 atmosphere:
   type: "air / N2 / vacuum / controlled humidity"
   temperature: "Not explicitly specified in text"
@@ -43,10 +51,25 @@ measurements:
   spectrum_interval: "Not explicitly specified in text"
   waveform_interval: "Not explicitly specified in text"
   temperature_interval: "Not explicitly specified in text"
+temperature_monitoring:
+  sensor_and_location: "Not explicitly specified in text"
+  baseline_temperature: "Not explicitly specified in text"
+  maximum_allowed_change: "Not explicitly specified in text"
+rest_recovery_testing:
+  enabled: "Not explicitly specified in text"
+  rest_duration: "Not explicitly specified in text"
+  measurements_before_and_after_rest: ["luminance", "spectrum", "voltage", "current", "R_PN"]
 spectral_stability:
   metrics: ["EL_peak_nm", "FWHM_nm", "integrated_spectrum", "new spectral features"]
+spectral_recovery_check:
+  compare_points: ["before stress", "end of stress", "after rest"]
+  recovery_definition: "Not explicitly specified in text"
 waveform_stability:
   metrics: ["I_positive", "I_negative", "R_PN", "phase lag", "current waveform"]
+interpretation_boundary:
+  lifetime_observation: "报告 retention curve、T50/T80、failed/censored devices 与 measurement conditions。"
+  causal_interpretation: "AC stabilization 是否来自 suppressed ion migration 必须由 matched controls、recovery 或独立 ion-sensitive evidence 支持。"
+  unsupported_causal_claim: "UNVERIFIED"
 possible_degradation_mechanisms:
   - "Joule heating"
   - "ion migration and interfacial accumulation"
@@ -58,3 +81,4 @@ critical_checks:
   - "确认 detector drift 与光路稳定性"
   - "保留失效器件和异常器件，不只报告 champion"
   - "退化机制必须由额外证据支持"
+  - "AC/DC comparison 必须报告 matching basis；未匹配的 power、charge、temperature 或 peak field 是替代解释"
