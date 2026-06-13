@@ -1,7 +1,7 @@
 protocol_id: "pn_half_cycle_el_analysis"
-version: "1.0"
+version: "1.1"
 scope: "AC-driven PeLED 正负半周期 electroluminescence 对称性分析"
-goal: "量化正负半周期 EL 强度、对称性与相位关系。"
+goal: "量化正负半周期 EL 强度、对称性与相位关系，并用预先定义的 controls 区分 electronic、capacitive 与 ion-sensitive interpretations。"
 replicates:
   independent_devices: "Not explicitly specified in text"
   cycles_analyzed_per_device: "Not explicitly specified in text"
@@ -27,21 +27,26 @@ voltage_waveform:
   duty_cycle: "Not explicitly specified in text"
   zero_crossing_definition: "voltage_V > 0 为 positive，voltage_V < 0 为 negative"
 polarity_convention:
-  positive_half_cycle: "按器件端电压与 electrode connection 定义；Not explicitly specified in text"
-  negative_half_cycle: "与 positive 定义相反；Not explicitly specified in text"
-  electrode_reference: "Not explicitly specified in text"
+  positive_half_cycle: "按实测 device-terminal voltage 定义；哪一 electrode 为正必须在每次 acquisition metadata 中记录。"
+  negative_half_cycle: "与 positive_half_cycle 的 electrode polarity 完全相反，并使用同一 terminal-voltage reference。"
+  electrode_reference: "To be filled"
+  wiring_map: "记录 waveform source、probe polarity、anode/cathode 或 bottom/top electrode 的连接关系；To be filled"
+  verification_control: "使用明确正、负 terminal bias 的 control trace 检查 polarity label，不得仅依据 generator channel sign。"
 device_terminal_voltage_verification:
-  method: "直接测量器件端电压；Not explicitly specified in text"
-  probe_location: "Not explicitly specified in text"
+  method: "直接同步测量器件两端 differential voltage；probe 与 correction method: To be filled"
+  probe_location: "To be filled"
   generator_setting_only_is_insufficient: true
+  record_fields: ["voltage definition", "probe attenuation", "probe polarity", "cable/probe configuration", "measured waveform"]
 time_resolved_EL_waveform:
   detector: "Not explicitly specified in text"
   sampling_rate: "Not explicitly specified in text"
   baseline_correction: "Not explicitly specified in text"
 integration_window_definition:
-  positive_window: "以已校准的 device-terminal voltage > 0 区间定义"
-  negative_window: "以已校准的 device-terminal voltage < 0 区间定义"
-  boundary_samples: "zero crossing 附近样本的处理方法；Not explicitly specified in text"
+  positive_window: "以 delay-corrected device-terminal voltage 的 positive zero crossing 至下一 zero crossing 定义；是否设置 boundary guard interval: To be filled"
+  negative_window: "以 delay-corrected device-terminal voltage 的 negative zero crossing 至下一 zero crossing 定义；使用与 positive window 相同的 boundary rule"
+  boundary_samples: "zero crossing、switching transient 与 guard interval 的纳入/排除规则必须预先定义；To be filled"
+  actual_window_reporting: "逐 trace 报告 positive/negative window 起止时间、duration 与有效 sample count"
+  fixed_rule_across_conditions: "同一 comparison set 必须使用相同的 window-generation rule；任何例外需单独标记"
 integrated_EL_intensity_per_half_cycle:
   positive: "I_positive = integral of baseline-corrected EL over voltage > 0"
   negative: "I_negative = integral of baseline-corrected EL over voltage < 0"
@@ -56,37 +61,111 @@ PN_ratio:
     formula: "R_PN_duration_normalized = mean(EL_positive) / mean(EL_negative)"
     equivalent_definition: "(I_positive / duration_positive) / (I_negative / duration_negative)"
     report_with: "两个 half-cycle duration 与有效 sample count"
-  interpretation: "ratio 越接近 1 仅表示所选定义下的 EL 对称性；必须明确 ratio type 并同时报告 numerator 与 denominator。"
+  mandatory_joint_reporting:
+    - "peak、integrated 与 duration-normalized PN metrics 必须并列报告，不得只选择最支持预期机制的一项"
+    - "peak ratio 不得写成 integrated R_PN；两者方向不一致时需保留并解释为 measurement-level discrepancy"
+    - "每个 ratio 同时报告 numerator、denominator、window、baseline 与 uncertainty"
+  interpretation: "ratio 越接近 1 仅表示所选定义下的 EL 对称性；不得单独证明相同 injection、transport 或 recombination mechanism。"
 phase_lag:
   reference: "voltage zero crossing or voltage fundamental phase"
   response: "EL onset, EL peak, or cross-correlation peak"
   method: "Not explicitly specified in text"
+  mandatory_reporting: "分别说明 reference、response feature、delay correction、frequency 与 uncertainty；不同 phase-lag definitions 不得混用"
 detector_bandwidth:
   value: "Not explicitly specified in text"
-  check: "不得解释超过 detector/electronics 有效带宽的相位与波形细节"
+  electronics_bandwidth: "To be filled"
+  check: "在目标 waveform/frequency 范围内验证 detector 与 acquisition electronics 的 amplitude/phase response；不得解释超过有效带宽的相位与波形细节"
 detector_response_control:
-  reference_signal_or_source: "Not explicitly specified in text"
+  reference_signal_or_source: "To be filled"
   frequency_response_check: "确认 detector response 不会制造或抹去 PN asymmetry"
-  control_result: "Not explicitly specified in text"
-current_synchronization:
-  trigger_source: "Not explicitly specified in text"
-  channel_delay_calibration: "Not explicitly specified in text"
-  time_base: "Not explicitly specified in text"
+  linearity_and_saturation_check: "确认 positive/negative peaks 均处于 detector linear range；method: To be filled"
+  control_result: "To be filled"
+simultaneous_voltage_current_el_synchronization:
+  acquisition_requirement: "device-terminal voltage、device current 与 EL 必须在共享 trigger/time base 下同步采集"
+  trigger_source: "To be filled"
+  time_base: "To be filled"
+  timestamp_alignment_check: "To be filled"
+  prohibited_shortcut: "不得将不同 run 的 voltage、current 与 EL traces 拼接后作为 simultaneous response"
+channel_delay_calibration:
+  voltage_channel_delay: "To be filled"
+  current_channel_delay: "To be filled"
+  optical_channel_delay: "To be filled"
+  calibration_method: "使用可追踪的 common timing event 或 reference source 测量 channels 间 delay；To be filled"
+  correction_applied: "To be filled"
+  uncertainty: "To be filled"
+dummy_load_instrument_delay_check:
+  load_type: "electrical dummy load / reference circuit；To be filled"
+  purpose: "测量 cables、probes、amplifiers、detector 与 acquisition channels 引入的 apparent phase lag 或 switching transient"
+  same_acquisition_path_required: true
+  result: "To be filled"
 displacement_current_caveat:
   statement: "电流波形可能包含 displacement/capacitive current，不得自动等同于 carrier injection current。"
-  separation_method: "Not explicitly specified in text"
+  separation_controls:
+    - "dummy load 或 reference capacitor control；To be filled"
+    - "non-emissive、below-EL-threshold 或其他 capacitive baseline control；To be filled"
+    - "比较 current transient 与 EL onset/decay，而非仅比较 current peak"
+  separation_method: "To be filled"
+  reporting_rule: "若未完成 separation，相关 current component 标记为 mixed conduction + displacement current，不得归类为纯 injection current"
+mechanism_discrimination_controls:
+  residual_carrier_recombination:
+    predicted_signature: "negative-half-cycle EL 对 preceding half-cycle history、rest interval 或 waveform ordering 敏感"
+    required_controls:
+      - "改变 preceding positive-half-cycle history，同时保持当前 negative-half-cycle terminal waveform 可比；exact condition: To be filled"
+      - "加入 rest/recovery 或 isolated-pulse control；To be filled"
+      - "比较 EL onset 与 synchronized current response"
+    evidence_limit: "history dependence 仅支持 residual-carrier interpretation，不直接证明 carrier identity 或 spatial distribution"
+  ambipolar_injection:
+    predicted_signature: "两种 polarity 下均存在与 EL 同步的 carrier-injection response，且不能仅由 preceding stored charge 解释"
+    required_controls:
+      - "positive/negative DC polarity controls；To be filled"
+      - "polarity-reversed wiring 或 device control，并重新核验 terminal polarity"
+      - "transport-layer、thickness 或 composition control；To be filled"
+    evidence_limit: "PN peak ratio 单独不能证明 ambipolar transport"
+  capacitive_response:
+    predicted_signature: "current/phase feature 在 dummy load、non-emissive control 或 EL 不出现时仍存在"
+    required_controls:
+      - "dummy load / reference circuit delay check"
+      - "displacement-current separation control"
+      - "frequency-dependent current-EL correlation"
+    evidence_limit: "capacitive current 不得解释为 radiative carrier recombination"
+  ion_induced_barrier_modulation:
+    predicted_signature: "PN asymmetry 或 phase lag 对 pre-bias、frequency、temperature、rest/recovery 或 ion-sensitive intervention 呈系统性依赖"
+    required_controls:
+      - "pre-bias history and polarity sequence；To be filled"
+      - "frequency and temperature series；To be filled"
+      - "rest/recovery test；To be filled"
+      - "ion-blocking、interface 或 independent ion-sensitive control；To be filled"
+    evidence_limit: "slow response 或 hysteresis 单独不是 ion migration 的特异性证据"
+mechanism_control_reporting:
+  observed_signature: "To be filled"
+  controls_completed: ["To be filled"]
+  controls_missing_or_failed: ["To be filled"]
+  competing_explanations_excluded: ["To be filled"]
+  competing_explanations_remaining: ["To be filled"]
+  support_class: "direct observation / indirect support / author hypothesis / UNVERIFIED；To be filled"
 interpretation_boundary:
   measured_observation: "分别报告 I_positive、I_negative、R_PN 与 phase lag，不附加机制结论。"
-  mechanism_interpretation: "ion migration、interfacial polarization 或 injection asymmetry 必须由额外 controls 支持。"
+  mechanism_interpretation: "residual-carrier recombination、ambipolar injection、capacitive response 与 ion-induced barrier modulation 必须按 mechanism_discrimination_controls 分别核验。"
   unsupported_interpretation: "UNVERIFIED"
+claim_gate:
+  direct_observation_allowed: "half-cycle EL、peak/integrated PN metrics、phase lag 与 synchronized voltage/current/EL traces"
+  mechanism_claim_requires: "至少一个与目标机制相符的 positive control、一个能够排除主要 competing explanation 的 discriminating control，以及完整 instrument-delay / detector-response verification"
+  blocked_without_controls:
+    - "PN asymmetry proves residual-carrier recombination"
+    - "PN asymmetry proves ambipolar injection"
+    - "phase lag proves ion migration or interfacial polarization"
+    - "current peak proves carrier injection"
 outputs:
   - "I_positive, I_negative, positive/negative peaks and durations"
   - "integrated, peak and duration-normalized PN ratios"
   - "phase lag with method and uncertainty"
   - "overlaid voltage/current/EL waveform"
+  - "polarity map、integration-window metadata、channel-delay calibration 与 dummy-load result"
+  - "mechanism discrimination control matrix with PASS / FAIL / UNVERIFIED"
 caveats:
   - "zero-voltage samples不属于任一半周期"
   - "背景光和 detector offset 会偏置积分"
   - "不同半周期窗口长度需归一化或明确报告"
   - "R_PN 接近 1 只表示强度对称，不单独证明相同注入或复合机制"
   - "未分离 displacement current 时，不得将 current peak 直接解释为 carrier injection"
+  - "未校正 instrument delay 与 detector response 时，不得将 apparent phase lag 解释为 device physics"

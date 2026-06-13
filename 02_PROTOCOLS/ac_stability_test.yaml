@@ -1,7 +1,7 @@
 protocol_id: "ac_stability_test"
-version: "1.0"
+version: "1.1"
 scope: "AC-driven PeLED 在受控 waveform 与环境条件下的 operating stability 测试"
-goal: "在明确 AC bias 与环境条件下测量器件亮度、光谱和 waveform 稳定性。"
+goal: "在可核验的 AC/DC stress matching 与环境条件下测量器件亮度、光谱和 waveform 稳定性，并将 lifetime observation 与 causal mechanism interpretation 分开。"
 replicates:
   independent_devices_per_condition: "Not explicitly specified in text"
   repeated_runs_per_device: "Not explicitly specified in text"
@@ -32,9 +32,39 @@ driving_condition:
   waveform: "Not explicitly specified in text"
   duty_cycle: "Not explicitly specified in text"
 ac_dc_matching_criteria:
-  primary_basis: "initial luminance / current density / RMS power / accumulated charge / peak field / other"
-  value_and_tolerance: "Not explicitly specified in text"
-  unmatched_factors: ["Not explicitly specified in text"]
+  comparison_design: "同批次、同 device stack、同 EML composition、同 active area 与同 measurement environment；任何不一致项必须列为 confounder"
+  current:
+    metric: "current density、cycle-resolved current 或其他预先定义指标；To be filled"
+    target_and_tolerance: "To be filled"
+    result: "To be filled"
+  charge:
+    metric: "accumulated absolute charge、net charge、positive/negative half-cycle charge；选择与理由: To be filled"
+    target_and_tolerance: "To be filled"
+    result: "To be filled"
+  power:
+    metric: "time-averaged electrical power at device terminals；calculation method: To be filled"
+    target_and_tolerance: "To be filled"
+    result: "To be filled"
+  initial_radiance:
+    metric: "initial luminance / radiance；选择与 calibration: To be filled"
+    target_and_tolerance: "To be filled"
+    result: "To be filled"
+  temperature:
+    metric: "device or substrate temperature at defined sensor location"
+    target_and_tolerance: "To be filled"
+    result: "To be filled"
+  peak_field_or_voltage:
+    metric: "measured device-terminal peak / peak-to-peak / RMS voltage；definition: To be filled"
+    target_and_tolerance: "To be filled"
+    result: "To be filled"
+  matching_hierarchy: "不得声称 AC/DC 完全 matched；逐项报告 current、charge、power、initial radiance、temperature 与 peak field/voltage 的 matched / unmatched / not measured status"
+  unmatched_factors: ["To be filled"]
+terminal_voltage_verification:
+  method: "在 device terminals 同步测量 voltage 与 current，而非仅记录 source setting；probe/correction method: To be filled"
+  voltage_definition: "peak / peak-to-peak / RMS / instantaneous waveform；To be filled"
+  probe_location_and_polarity: "To be filled"
+  acquisition_time_base: "To be filled"
+  verification_result: "To be filled"
 atmosphere:
   type: "air / N2 / vacuum / controlled humidity"
   temperature: "Not explicitly specified in text"
@@ -55,21 +85,74 @@ temperature_monitoring:
   sensor_and_location: "Not explicitly specified in text"
   baseline_temperature: "Not explicitly specified in text"
   maximum_allowed_change: "Not explicitly specified in text"
+  continuous_or_interval_recording: "To be filled"
+  ac_dc_sensor_equivalence: "AC 与 DC 使用相同 sensor type、location 与 acquisition rule；To be filled"
+  thermal_excursion_action: "达到预先定义 thermal limit 时的 pause/stop/flag rule；To be filled"
+  reporting_rule: "同时报告 temperature-time trace；未测量或未匹配 temperature 时，Joule heating 保留为 competing explanation"
 rest_recovery_testing:
-  enabled: "Not explicitly specified in text"
-  rest_duration: "Not explicitly specified in text"
+  enabled: "To be filled"
+  rest_duration: "To be filled"
+  rest_environment: "To be filled"
+  bias_during_rest: "open circuit / zero bias / other；To be filled"
+  scheduled_rest_points: "To be filled"
   measurements_before_and_after_rest: ["luminance", "spectrum", "voltage", "current", "R_PN"]
+  result: "To be filled"
+  interpretation_rule: "recovery 仅表示存在 reversible component；不得单独归因于 ion redistribution"
+polarity_reversal_test:
+  enabled: "To be filled"
+  design: "交换 waveform polarity sequence 或 device wiring，并重新验证 terminal polarity；exact design: To be filled"
+  matched_variables: ["current", "charge", "power", "initial radiance", "temperature", "stress duration"]
+  measurements: ["luminance", "spectrum", "voltage", "current", "R_PN", "phase lag"]
+  purpose: "检验 field direction/history 是否影响 degradation、recovery 或 PN response，并区分固定 electrode asymmetry"
+  matching_result: "To be filled"
+  result: "To be filled"
 spectral_stability:
   metrics: ["EL_peak_nm", "FWHM_nm", "integrated_spectrum", "new spectral features"]
 spectral_recovery_check:
   compare_points: ["before stress", "end of stress", "after rest"]
-  recovery_definition: "Not explicitly specified in text"
+  recovery_definition: "预先定义 spectrum recovery metric 与 comparison baseline；To be filled"
+  raw_spectra_required: true
+  detector_wavelength_calibration: "To be filled"
+  result: "To be filled"
+  interpretation_rule: "spectral recovery、no recovery 与 continuing drift 分开报告；recovery 不自动证明 reversible ion migration"
 waveform_stability:
   metrics: ["I_positive", "I_negative", "R_PN", "phase lag", "current waveform"]
+post_stress_ion_mapping:
+  enabled: "To be filled"
+  method: "TOF-SIMS / other independent ion-distribution method；To be filled"
+  sampling_points: ["unstressed control", "AC-stressed", "DC-stressed", "after-rest when applicable"]
+  sample_matching: "同 batch、同 stack、同 EML、matched stress endpoint 与 documented storage/transfer；To be filled"
+  location_and_depth_reference: "To be filled"
+  analysis_plan: "预先定义 target species、normalization、interface reference 与 comparison metric；To be filled"
+  blinding_or_sample_coding: "To be filled"
+  result: "To be filled"
+  interpretation_rule: "post-stress map 直接支持 stress 后 ion distribution difference；不能单独重建动态 migration path 或证明其为 lifetime improvement 的唯一原因"
 interpretation_boundary:
-  lifetime_observation: "报告 retention curve、T50/T80、failed/censored devices 与 measurement conditions。"
-  causal_interpretation: "AC stabilization 是否来自 suppressed ion migration 必须由 matched controls、recovery 或独立 ion-sensitive evidence 支持。"
+  lifetime_observation:
+    report: "报告 retention curve、T50/T80、failed/censored devices、spectral evolution、temperature 与完整 measurement conditions。"
+    allowed_conclusion: "在已报告 matching 条件下，AC 与 DC 的 observed operational/spectral stability 存在或不存在差异。"
+  causal_interpretation:
+    separate_section_required: true
+    report: "逐项列出 supporting evidence、competing explanations、unmatched variables 与 independent ion-sensitive evidence。"
+    minimum_support: "matched stress comparison + thermal record + rest/recovery or polarity control + independent ion-sensitive evidence；未满足项标为 UNVERIFIED"
   unsupported_causal_claim: "UNVERIFIED"
+over_attribution_block:
+  blocked_statement: "AC stabilization is caused by suppressed ion migration"
+  reason: "lifetime improvement、spectral stability、slow transient 或 post-stress ion redistribution 任一单项均不足以证明完整 causal mechanism"
+  competing_explanations_to_report:
+    - "current、charge、power、initial radiance 或 peak field mismatch"
+    - "Joule heating 或 temperature history difference"
+    - "reversible injection/barrier change"
+    - "capacitive/interfacial polarization"
+    - "electrode or transport-layer degradation"
+    - "phase segregation、composition change 或 encapsulation/environment effect"
+  release_conditions:
+    - "所有 AC/DC matching dimensions 均有 measured status 与 uncertainty"
+    - "terminal voltage 与 temperature histories 已核验"
+    - "rest/recovery 和 polarity reversal results 已报告，或缺失原因明确"
+    - "post-stress ion mapping 或其他 independent ion-sensitive evidence 已与 lifetime/spectral observations 对齐"
+    - "主要 competing explanations 已通过 controls 排除或保留为 unresolved"
+  default_verdict: "UNVERIFIED"
 possible_degradation_mechanisms:
   - "Joule heating"
   - "ion migration and interfacial accumulation"
@@ -81,4 +164,13 @@ critical_checks:
   - "确认 detector drift 与光路稳定性"
   - "保留失效器件和异常器件，不只报告 champion"
   - "退化机制必须由额外证据支持"
-  - "AC/DC comparison 必须报告 matching basis；未匹配的 power、charge、temperature 或 peak field 是替代解释"
+  - "AC/DC comparison 必须逐项报告 current、charge、power、initial radiance、temperature 与 peak field/voltage 的 matching status"
+  - "未匹配或未测量的 stress dimension 必须作为 competing explanation，不得静默忽略"
+  - "lifetime observation 与 suppressed-ion-migration interpretation 必须在不同字段或报告章节中呈现"
+outputs:
+  - "AC/DC retention curves、lifetime metrics、failed/censored counts 与 complete stress metadata"
+  - "current、charge、power、initial radiance、temperature 与 terminal-voltage matching table"
+  - "temperature-time、spectrum-time 与 waveform-time records"
+  - "rest/recovery、polarity reversal 与 spectral recovery results"
+  - "post-stress ion mapping result or explicit Not performed / To be filled status"
+  - "observation-versus-causal-interpretation table with VERIFIED / INDIRECT SUPPORT / AUTHOR HYPOTHESIS / UNVERIFIED labels"
