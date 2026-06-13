@@ -28,6 +28,15 @@
 3. 按 `03_DATA_ANALYSIS/run_example_analysis.md` 运行 synthetic waveform 与 stability examples。
 4. 把脚本输出放在本地 analysis output 目录，不提交生成的图片、JSON 或 processed data。
 
+## Recommended v0.1 Workflow
+
+1. Read paper → paper card
+2. Add comparison row
+3. Update mechanism map
+4. Translate gaps into protocol controls
+5. Use pilot experiment plan
+6. Complete pre-experiment checklist before any AC-PeLED experiment
+
 ## 项目目标
 
 - 用 `paper card` 结构化文献，而不是只写自由文本总结。
