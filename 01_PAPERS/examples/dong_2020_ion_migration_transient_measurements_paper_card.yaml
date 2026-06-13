@@ -1,0 +1,185 @@
+# 缺失信息统一填写: "Not explicitly specified in text"
+title: "Understanding the Role of Ion Migration in the Operation of Perovskite Light-Emitting Diodes by Transient Measurements"
+authors:
+  - "Qi Dong"
+  - "Juliana Mendes"
+  - "Lei Lei"
+  - "Dovletgeldi Seyitliyev"
+  - "Liping Zhu"
+  - "Siliang He"
+  - "Kenan Gundogdu"
+  - "Franky So"
+journal: "ACS Applied Materials & Interfaces"
+year: "2020"
+doi: "10.1021/acsami.0c14269"
+paper_type: "PeLED transient current and electroluminescence study"
+source_verification:
+  status: "VERIFIED"
+  metadata_checked_against:
+    - "DOI resolver and Crossref metadata"
+    - "ACS publisher metadata and abstract"
+    - "PubMed and OpenAlex bibliographic records"
+    - "ACS official Supporting Information"
+  verification_date: "2026-06-13"
+  notes: "Title, authors, journal, publication date, volume 12, issue 43, pages 48845-48853, and DOI were verified. Scientific claims were restricted to the accessible abstract and ACS Supporting Information; the full main text was not openly accessible."
+architecture_scope: "PeLED"
+source_scope:
+  provided_sources:
+    - "publisher abstract"
+    - "ACS official Supporting Information, including Table S1"
+    - "verified Crossref, PubMed, and OpenAlex metadata"
+  sections_reviewed:
+    - "Abstract"
+    - "Supporting Information Table S1"
+  unavailable_sources:
+    - "Full main-text article and main-text figure captions were not openly accessible"
+parameter_provenance:
+  explicitly_reported:
+    - "Transient electroluminescence and current responses were measured; Abstract"
+    - "Current and efficiency show slow response on a time scale of tens of milliseconds; Abstract"
+    - "Supporting Information Table S1 reports three fitted hole-injection-current time constants from 230 to 300 K"
+    - "At 300 K, Table S1 reports tau1 = 1.25E-04 s, tau2 = 1.18E-03 s, and tau3 = 2.82E-03 s"
+    - "At 230 K, Table S1 reports tau1 = 1.27E-04 s, tau2 = 1.23E-02 s, and tau3 = 2.75E-02 s"
+  unsupported_or_missing:
+    - "Perovskite composition and dimensionality: Not explicitly specified in text"
+    - "Full device stack and layer thicknesses: Not explicitly specified in text"
+    - "Applied transient waveform, pulse width, voltage amplitude, and repetition rate: Not explicitly specified in text"
+    - "Current-density normalization and device active area: Not explicitly specified in text"
+    - "Transient EL detector model, bandwidth, and response correction: Not explicitly specified in text"
+    - "Current-channel and EL-channel delay calibration: Not explicitly specified in text"
+    - "Device replicate count and uncertainty statistics: Not explicitly specified in text"
+evidence_locator:
+  convention: "accessible source + section/table; main-text figure number used only when explicitly accessible"
+  entries:
+    - claim_id: "claim-001"
+      location: "Publisher Abstract; ACS Supporting Information Table S1"
+      quoted_or_paraphrased_basis: "Transient electroluminescence and current were measured, and the abstract reports slow current and efficiency response on a tens-of-milliseconds scale; Table S1 gives fitted hole-injection-current time constants extending into the millisecond range."
+    - claim_id: "claim-002"
+      location: "Publisher Abstract; ACS Supporting Information Table S1"
+      quoted_or_paraphrased_basis: "The authors attribute the slow current response to halide migration and accumulation at the anode interface; the temperature-dependent fitted current components are consistent with a thermally sensitive slow process but do not directly identify moving ions."
+    - claim_id: "claim-003"
+      location: "Publisher Abstract"
+      quoted_or_paraphrased_basis: "The authors state that halide accumulation facilitates hole injection and creates strong charge imbalance, while ion-migration-facilitated injection raises carrier density and favors bimolecular radiative recombination."
+    - claim_id: "claim-004"
+      location: "Publisher Abstract; ACS Supporting Information Table S1"
+      quoted_or_paraphrased_basis: "The study combines charge-injection and recombination dynamics to interpret ion-migration-related PeLED operation, supporting transient measurements as a diagnostic approach while retaining model dependence."
+claim_evidence_records:
+  - claim_id: "claim-001"
+    claim: "Transient current and electroluminescence-related efficiency responses reveal slow dynamics during PeLED operation."
+    evidence_locator: "The Abstract directly reports transient electroluminescence and current measurements, with both current and efficiency showing a slow response on a time scale of tens of milliseconds; Supporting Information Table S1 directly reports millisecond-scale fitted hole-injection-current components."
+    support_class: "direct evidence for measured slow transient current and efficiency dynamics; main-text EL trace details were not independently reviewed"
+    verification_status: "VERIFIED"
+  - claim_id: "claim-002"
+    claim: "The slow transient behavior is sensitive to ion migration or redistribution in the studied PeLED."
+    evidence_locator: "The Abstract attributes slow current response to halide migration and accumulation at the anode interface; Supporting Information Table S1 reports temperature-dependent slow current components but does not directly identify ionic species or spatial redistribution."
+    support_class: "indirect support plus author interpretation; no direct ion-distribution measurement was available in the reviewed source text"
+    verification_status: "VERIFIED"
+  - claim_id: "claim-003"
+    claim: "Ion migration is proposed to affect carrier injection balance and the evolution of electroluminescence efficiency."
+    evidence_locator: "The Abstract states that halide accumulation at the anode facilitates hole injection and leads to strong charge imbalance, and that enhanced injection increases carrier density favoring bimolecular radiative recombination."
+    support_class: "author interpretation with indirect support from measured charge-injection and recombination dynamics"
+    verification_status: "VERIFIED"
+  - claim_id: "claim-004"
+    claim: "Combined transient current and electroluminescence measurements can serve as a diagnostic for ion-migration-related PeLED operation."
+    evidence_locator: "The study explicitly investigates ion migration through transient electroluminescence and current responses and combines charge-injection and recombination dynamics; diagnostic specificity remains dependent on the authors' physical interpretation."
+    support_class: "direct evidence for transient measurement as an operational diagnostic; indirect support for assigning the diagnostic response specifically to ion migration"
+    verification_status: "VERIFIED"
+extraction_version: "paper-card schema 1.1; extracted and source-checked 2026-06-13"
+critic_status:
+  verdict: "NOT_REVIEWED"
+  reviewed_by: "Not explicitly specified in text"
+  review_date: "Not explicitly specified in text"
+  required_revisions:
+    - "Review the full main text before using main-text figure numbers, device architecture, pulse parameters, or quantitative transient EL values."
+    - "Do not use this study as direct evidence for AC stabilization because AC operation is not explicitly reported in the accessible source text."
+
+material_system: "Halide perovskite light-emitting diode; exact composition: Not explicitly specified in text"
+perovskite_composition: "Not explicitly specified in text"
+dimensionality: "Not explicitly specified in text"
+emission_color: "Not explicitly specified in text"
+
+device:
+  device_stack: "Not explicitly specified in text"
+  substrate: "Not explicitly specified in text"
+  HTL: "Not explicitly specified in text"
+  EML: "Halide perovskite emissive layer; exact composition: Not explicitly specified in text"
+  ETL: "Not explicitly specified in text"
+  electrode: "An anode interface is discussed; electrode material and thickness: Not explicitly specified in text"
+  device_area: "Not explicitly specified in text"
+  encapsulation: "Not explicitly specified in text"
+
+driving_condition:
+  mode: "Transient current and transient electroluminescence measurement; AC operation: Not explicitly specified in text"
+  waveform: "Not explicitly specified in text"
+  frequency: "Not explicitly specified in text"
+  voltage_amplitude: "Not explicitly specified in text"
+  duty_cycle: "Not explicitly specified in text"
+  current_density: "Not explicitly specified in text"
+  measurement_environment: "Supporting Information Table S1 spans 230-300 K; atmosphere and humidity: Not explicitly specified in text"
+
+performance:
+  EL_peak: "Not explicitly specified in text"
+  FWHM: "Not explicitly specified in text"
+  CIE: "Not explicitly specified in text"
+  luminance: "Not explicitly specified in text"
+  EQE: "Not explicitly specified in text; the accessible Abstract discusses transient efficiency without a numerical EQE value"
+  turn_on_voltage: "Not explicitly specified in text"
+  positive_half_cycle_EL: "Not applicable to the accessible evidence; AC half-cycle operation is Not explicitly specified in text"
+  negative_half_cycle_EL: "Not applicable to the accessible evidence; AC half-cycle operation is Not explicitly specified in text"
+  PN_ratio: "Not explicitly specified in text"
+  lifetime: "Not explicitly specified in text"
+  stability_protocol: "Not explicitly specified in text; no AC operational-stability comparison is reported in the accessible source text"
+
+mechanism:
+  main_claim: "The authors attribute slow current response to migration and accumulation of halide ions at the anode interface, which facilitates hole injection and produces charge imbalance; enhanced injection is proposed to increase carrier density and bimolecular radiative recombination."
+  material_structure_link: "Spatial halide redistribution at the anode interface is proposed, but no directly reviewed composition-depth or imaging evidence was available in the accessible source text."
+  carrier_transport_link: "Halide accumulation is proposed to facilitate hole injection and create strong electron-hole injection imbalance."
+  ion_migration_or_polarization: "Slow transient response and temperature-dependent hole-injection-current components are consistent with an ion-migration-sensitive process; assigning them specifically to halide migration and interfacial accumulation is indirect support plus author interpretation."
+  recombination_mechanism: "The authors propose that ion-migration-facilitated charge injection raises carrier density and favors bimolecular radiative recombination, producing the slow efficiency evolution."
+  degradation_mechanism: "Not explicitly specified in text"
+
+evidence:
+  direct_evidence:
+    - "Publisher Abstract: transient electroluminescence and current responses were measured."
+    - "Publisher Abstract: current and efficiency both show slow response on a time scale of tens of milliseconds."
+    - "Supporting Information Table S1: fitted hole-injection-current components are reported from 230 to 300 K, including millisecond-to-tens-of-milliseconds components."
+  indirect_evidence:
+    - "Temperature-dependent slow hole-injection-current components are consistent with a thermally activated migration-sensitive process but do not alone identify halide motion."
+    - "Correlated charge-injection and recombination dynamics are consistent with injection-balance changes but do not directly image interfacial ion accumulation."
+  author_hypothesis:
+    - "The slow current response originates from halide migration and accumulation at the anode interface."
+    - "Halide accumulation facilitates hole injection and leads to strong charge imbalance."
+    - "Ion-migration-facilitated injection increases carrier density and favors bimolecular radiative recombination, causing slow efficiency evolution."
+  missing_details:
+    - "Main-text transient current and EL figure numbers: Not explicitly specified in accessible text"
+    - "Transient EL rise or decay constants: Not explicitly specified in accessible text"
+    - "Pulse waveform, voltage amplitude, duration, and repetition rate: Not explicitly specified in text"
+    - "Detector response and channel-delay calibration: Not explicitly specified in text"
+    - "Direct ion-distribution or ion-imaging measurement: Not explicitly specified in accessible text"
+    - "Operational lifetime and AC/DC stability comparison: Not explicitly specified in text"
+
+figures_to_understand:
+  - figure: "Supporting Information Table S1"
+    role: "Quantify fitted hole-injection-current time constants as a function of temperature."
+    key_trend: "One fast component remains near 0.12-0.13 ms, while two slower components decrease from approximately 12.3 and 27.5 ms at 230 K to approximately 1.18 and 2.82 ms at 300 K."
+    claim_supported: "Direct evidence for multiple temperature-dependent current-response time scales; indirect support for a migration-sensitive slow process."
+    caveat: "The fitted components do not by themselves identify ionic species, migration direction, or spatial accumulation."
+  - figure: "Main-text transient current and electroluminescence figures"
+    role: "Compare charge-injection and recombination dynamics during PeLED operation."
+    key_trend: "The accessible Abstract reports slow current and efficiency evolution on a tens-of-milliseconds scale."
+    claim_supported: "Direct evidence at abstract level for slow transient behavior; ion-migration and injection-imbalance assignments remain interpretive."
+    caveat: "Figure numbers, axes, drive parameters, normalization, sample count, and detector bandwidth were not independently reviewed."
+
+relevance_to_my_project:
+  useful_idea: "Use synchronized transient current and EL/efficiency measurements across temperature to separate fast electronic response from slower migration-sensitive dynamics."
+  transferable_protocol: "02_PROTOCOLS/pn_half_cycle_el_analysis.yaml requires adaptation because this paper does not explicitly study AC half-cycle operation."
+  possible_experiment: "Not explicitly specified in text"
+  risk_or_limitation: "Slow transient signals are not uniquely diagnostic of ion migration and may include trapping, capacitive charging, interfacial polarization, thermal effects, or injection-barrier evolution. This paper cannot be used as direct evidence for AC stabilization or quasi-2D AC-PeLED behavior."
+
+uncertainty_notes:
+  - "The full main text was not openly accessible; scientific extraction was restricted to the publisher abstract and ACS Supporting Information."
+  - "The slow-response measurements are direct, but halide migration, anode accumulation, and injection-imbalance causality are model-based interpretations in the accessible text."
+  - "Supporting Information Table S1 provides fitted hole-injection-current time constants, but the associated main-text fitting model and drive protocol were not independently reviewed."
+  - "AC operation is not explicitly studied in the accessible source text; no AC stabilization claim is supported."
+unresolved_contradictions: []
+notes: "Created from verified bibliographic metadata, the publisher abstract, and ACS official Supporting Information. No PDF, image, comparison-table entry, or full paper report was added to the repository."
